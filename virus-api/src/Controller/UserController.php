@@ -34,11 +34,14 @@ class UserController extends AbstractController
             $resp->setContent(json_encode(['status' => 'KO']));
             return $resp;
         }
-
+            //if the user not exist enter here and it will write the account
         $user->setEmail($data['email']);
         $user->setPassword(password_hash($data['password'], PASSWORD_BCRYPT));
+        //using function of decotren to inscript the user in the database
+        //with methode doctrin to do the inscription the user in data base
         $userManager->persist($user);
         $userManager->flush();
+        
         $token = $authenticationService->encode($user->getId());
         /* We can authenticate the user with a JWT Token */
         return $this->json(['status' => 'OK', "token" => $token]);
@@ -89,6 +92,7 @@ class UserController extends AbstractController
     {
         $response = new Response;
         $authorization = $request->headers->get('Authorization');
+        //substring the type of the authorization to delete the first 7 leter from the token
         $token = substr($authorization, 7);
         if(!$token) {
             $response->setStatusCode(401);

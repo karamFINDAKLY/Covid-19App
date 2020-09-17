@@ -30,4 +30,5 @@ cp .env .env.local
 cd virus-app
 npm install
 npm start
+now it should work
 ```

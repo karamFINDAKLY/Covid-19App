@@ -26,6 +26,7 @@ class ChartController
         $token = substr($authorization, 7);
         $payload = $authenticationService->decode($token);
         $response = new Response;
+        //if the user have the wirte 
         if (isset($payload['userId'])) {
             $client = new \GuzzleHttp\Client();
             $resp = $client->request(
@@ -51,6 +52,8 @@ class ChartController
      * @param AuthenticationService $authenticationService
      * @return JsonResponse|Response
      */
+
+     //to get the list of the the cuntery  and the number of cuntery 
     public function getCountries(Request $request, AuthenticationService $authenticationService)
     {
         $response = new Response;
