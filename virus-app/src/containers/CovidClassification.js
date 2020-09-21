@@ -32,6 +32,7 @@ const CovidClassificationContent = ({latest, loading, user}) => {
     </div>
 }
 
+//select
 const CovidClassificationFilter = ({onChange}) => {
     return <select
         className={'form-control w-50 mr-0 ml-auto mt-2 mb-4'}
