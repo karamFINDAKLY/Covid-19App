@@ -16,7 +16,7 @@ composer install
 cp .env .env.local
 ```
 
-* Completer les informations DATABASE_URL, JWT_KEY, API_KEY, API_HOST
+* Completer les informations DATABASE_URL, JWT_KEY, API_KEY, API_HOST,MAILJET_SECRET,MAILJET_KEY,SENDER_MAIL
 
 * Migrer la base de données:
 
